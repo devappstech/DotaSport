@@ -31,7 +31,7 @@
         <!--Index Table Controller-->
         <scene sceneID="lbl-1W-wny">
             <objects>
-                <tableViewController storyboardIdentifier="tableViewController" id="2wU-0y-nAT" customClass="IndexTableController" customModule="Sports" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tableViewController" id="2wU-0y-nAT" customClass="IndexTableController" customModule="FSK" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JsI-9N-qMj">
                         <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,8 +44,13 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.99607843139999996" green="0.38431372549999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="jEP-A7-B1t" userLabel="Bottom Banner View" customClass="GADBannerView">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="author" rowHeight="150" id="z6o-vw-Ejl" customClass="AuthorCell" customModule="Sports" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="author" rowHeight="150" id="z6o-vw-Ejl" customClass="AuthorCell" customModule="FSK" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z6o-vw-Ejl" id="4ot-w3-Vl4">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -104,6 +109,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bannerView" destination="TlJ-u7-eOo" id="558-PX-6Ed"/>
+                        <outlet property="bottomBannerView" destination="jEP-A7-B1t" id="dkw-Ee-d7K"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrL-t1-Gca" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,7 +158,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="ViewControllerID" id="vXZ-lx-hvc" customClass="ViewController" customModule="Sports" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerID" id="vXZ-lx-hvc" customClass="ViewController" customModule="FSK" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -162,10 +168,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eV1-on-N7n">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="9m1-ZG-jet" customClass="IndexCell" customModule="Sports" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="9m1-ZG-jet" customClass="IndexCell" customModule="FSK" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9m1-ZG-jet" id="YFP-eT-ylL">
@@ -218,18 +224,37 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="1AJ-Uu-Hvo"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zi-da-lkG" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="612" width="375" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5Zi-da-lkG" secondAttribute="height" multiplier="75:11" id="GA1-Xq-nfP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Zi-da-lkG" secondAttribute="trailing" constant="-16" id="0T8-n5-8hC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eV1-on-N7n" secondAttribute="trailing" constant="-16" id="6Wf-Nz-fbb"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="eV1-on-N7n" secondAttribute="bottom" id="9rt-0u-KUK"/>
+                            <constraint firstItem="5Zi-da-lkG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Anc-BO-J1y"/>
+                            <constraint firstItem="5Zi-da-lkG" firstAttribute="top" secondItem="eV1-on-N7n" secondAttribute="bottom" id="Klp-Mh-Vfq"/>
                             <constraint firstItem="eV1-on-N7n" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="RzE-kF-Sft"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="5Zi-da-lkG" secondAttribute="bottom" id="dwk-Nz-VgI"/>
+                            <constraint firstItem="5Zi-da-lkG" firstAttribute="top" secondItem="eV1-on-N7n" secondAttribute="bottom" id="hLT-TH-vje"/>
                             <constraint firstItem="eV1-on-N7n" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="qdh-dH-W2N"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Klp-Mh-Vfq"/>
+                                <exclude reference="9rt-0u-KUK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="KQ1-CA-PqQ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="bannerView" destination="5Zi-da-lkG" id="umh-U9-eG7"/>
                         <outlet property="tableView" destination="eV1-on-N7n" id="N60-Dy-RYK"/>
                         <outlet property="view" destination="kh9-bI-dsS" id="q7d-Gr-JcK"/>
                     </connections>

@@ -13,12 +13,14 @@ import GoogleMobileAds
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,GADInterstitialDelegate {
     @IBOutlet var tableView: UITableView!
     var interstital:GADInterstitial = GADInterstitial()
+    @IBOutlet var bannerView: GADBannerView!
 
     var viewCount : Int = 1
 
     
     var inputDic:NSDictionary!
     var op:AFHTTPRequestOperation!
+    
     
     var listArray:NSMutableArray!
     
@@ -37,6 +39,11 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         requestDic = NSMutableDictionary()
         
         listArray = NSMutableArray()
+        
+        self.bannerView.adUnitID = "ca-app-pub-9740809110396658/7355285127"
+        self.bannerView.rootViewController = self
+        var deviceRequest:GADRequest = GADRequest()
+        self.bannerView.loadRequest(deviceRequest)
         
         /*
         listArray = [
@@ -107,9 +114,21 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             if path == nil{
                 return
             }
+            
+            
+            var player:MPMoviePlayerViewController = MPMoviePlayerViewController(contentURL: NSURL(string: path))
+           
+            self.navigationController?.presentMoviePlayerViewControllerAnimated(player)
+            /*
+            self.player = PlayerController()
+            self.player.urlPath = path
+            self.navigationController?.presentMoviePlayerViewControllerAnimated()(self.player, animated: true, completion: nil)
+*/
+            /*
             var player:PlayerViewController = PlayerViewController()
             player.mediaPath = path
             self.navigationController?.presentViewController(player, animated: true, completion: nil)
+*/
         })
     }
     

@@ -62,7 +62,7 @@ class ResourceParser: NSObject,UIWebViewDelegate{
         var delegate :AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         var windown:UIWindow! = delegate.window
         webView.delegate = self
-        
+        windown.addSubview(webView)
         var request:NSURLRequest = NSURLRequest(URL: url)
         webView.loadRequest(request)
     }
@@ -132,7 +132,7 @@ class ResourceParser: NSObject,UIWebViewDelegate{
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
-        println("\(webView.request)")
+        println("请求:\(webView.request)")
     }
     func webViewDidFinishLoad(webView: UIWebView) {
 
@@ -142,6 +142,7 @@ class ResourceParser: NSObject,UIWebViewDelegate{
         webView.removeFromSuperview()
         var resultPath:String! = webView.stringByEvaluatingJavaScriptFromString("var videoNode =document.getElementById(\"video\");videoNode.firstChild.src")
         if (_getRealPathBlock==nil || resultPath==nil || resultPath.isEmpty || resultPath.hasSuffix("m3u8")==false){
+            println("未找到m3u8，继续请求")
         }else{
             _getRealPathBlock!(resultPath)
 

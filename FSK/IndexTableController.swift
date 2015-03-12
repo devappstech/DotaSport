@@ -17,6 +17,7 @@ class IndexTableController: UITableViewController ,GADInterstitialDelegate{
 
     
     @IBOutlet var bannerView: GADBannerView!
+    @IBOutlet var bottomBannerView:GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,10 @@ class IndexTableController: UITableViewController ,GADInterstitialDelegate{
         var deviceRequest:GADRequest = GADRequest()
         self.bannerView.loadRequest(deviceRequest)
         
+        self.bottomBannerView.adUnitID = "ca-app-pub-9740809110396658/5878551923"
+        self.bottomBannerView.rootViewController = self
+        var bottomRequest:GADRequest = GADRequest()
+        self.bottomBannerView.loadRequest(bottomRequest)
         
         self.navigationItem.title = "首页"
         
